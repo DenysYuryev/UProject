@@ -112,23 +112,23 @@ window.addEventListener('DOMContentLoaded', () => {
           modalWindowClose = document.querySelector('[data-modalClose]'),
           modalWindow = document.querySelector('.modal');
 
-    modalWindowOpen.forEach(btn => btn.addEventListener('click', () => modalEction('open')));
+    modalWindowOpen.forEach(btn => btn.addEventListener('click', () => modalAction('open')));
 
-    modalWindowClose.addEventListener('click', () => modalEction('close'));
+    modalWindowClose.addEventListener('click', () => modalAction('close'));
 
-    modalWindow.addEventListener('click', (evnt) => {
-        if (evnt.target === modalWindow) {
-            modalEction('close');
+    modalWindow.addEventListener('click', (event) => {
+        if (event.target === modalWindow) {
+            modalAction('close');
         }
     });
 
-    document.addEventListener('keydown', (evnt) => {
-        if (evnt.code === 'Escape' && modalWindow.classList.contains('show')) {
-            modalEction('close');
+    document.addEventListener('keydown', (event) => {
+        if (event.code === 'Escape' && modalWindow.classList.contains('show')) {
+            modalAction('close');
         }
     });
 
-    function modalEction (action) {
+    function modalAction (action) {
         if (action === 'close') {
             modalWindow.classList.add('hide');          // додаємо css стиль до тегу модального вікна
             modalWindow.classList.remove('show');
@@ -144,18 +144,18 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // Time delay to show modal window
-    const modalWindowTimerId = setTimeout(modalEction('open'), 5000);
+    const modalWindowTimerId = setTimeout(modalAction('open'), 5000);
 
     // Scroll pages to same coordinate - end of page
     function modalWindowShowByScroll() {
         if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight -1) {
         // -1px if not working in browser
-            modalEction('open');
+            modalAction('open');
             window.removeEventListener('scroll', modalWindowShowByScroll);
         }
     }
-
     window.addEventListener('scroll', () => modalWindowShowByScroll());
+
 });
 
 
