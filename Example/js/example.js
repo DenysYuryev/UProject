@@ -4,17 +4,17 @@
 // Callback function
 //
 function learnJS(lang, Callback) {
-    console.log(`Я вивчаю ${lang}!`);
+    console.log(`РЇ РІРёРІС‡Р°СЋ ${lang}!`);
     Callback();
 }
 
 function done(){
-    console.log('Я пройшов курс!');
+    console.log('РЇ РїСЂРѕР№С€РѕРІ РєСѓСЂСЃ!');
 }
 
 learnJS('JavaScript', done);
 
-// Методи в об'єктах і Деструктуризація об'єктів 
+// РњРµС‚РѕРґРё РІ РѕР±'С”РєС‚Р°С… С‚Р° Р”РёСЃС‚СЂСѓРєС‚СѓСЂРёР·Р°С†С–СЏ РѕР±'С”РєС‚С–РІ
 //
 const option = {
     name: 'test',
@@ -24,41 +24,41 @@ const option = {
         border: 'black',
         bg: 'red'
     },
-    // метод в середині об'єкту
+    // РјРµС‚РѕРґ РІ СЃРµСЂРµРґРёРЅС– РѕР±'С”РєС‚Сѓ
     makeTest: function() {
-        console.log('Метод тест');
+        console.log('пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ');
     }
 };
 
-option.makeTest();      // Виклик методу з об'єкту 'option'
+option.makeTest();      // РІРёРєР»РёРє РјРµС‚РѕРґСѓ Р· РѕР±'С”РєС‚Сѓ 'option'
 
-const {border, bg} = option.colors;     // Деструктуризація 
+const {border, bg} = option.colors;     // Р”РёСЃС‚СЂСѓРєС‚СѓСЂРёР·Р°С†С–СЏ 
 console.log(border);
 
 // console.log(option.name);
 // console.log(option['colors']['border']);
 
-// Перебирання властивостей об'єкта
+// РџРµСЂРµР±РёСЂР°РЅРЅСЏ РІР»Р°СЃС‚РёРІРѕСЃС‚РµР№ РѕР±'С”РєС‚Р°
 //
 let counter = 0;
 for (let key in option) {
     if (typeof(option[key]) === 'object') {
         for (let i in option[key]) {
-            console.log(`Властивість: ${i}, має значення: ${option[key][i]}`);
+            console.log(`Р’Р»Р°СЃС‚РёРІС–СЃС‚СЊ: ${i}, РјР°С” Р·РЅР°СЏРµРЅРЅСЏ: ${option[key][i]}`);
         } 
     } else {
-        console.log(`Властивість: ${key}, має значення: ${option[key]}`);
+        console.log(`Р’Р»Р°СЃС‚РёРІС–СЃС‚СЊ: ${key}, РјР°С” Р·РЅР°С‡РµРЅРЅСЏ: ${option[key]}`);
         counter ++;
     }
 } 
 
-console.log(`Масив імен об'єкту: ${Object.keys(option)}`);
-console.log(`Кількість властивостей об'єкту: ${Object.keys(option).length}`);
+console.log(`РњР°СЃРёРІ С–РјРµРЅ РѕР±'С”РєС‚Р°: ${Object.keys(option)}`);
+console.log(`РљС–Р»СЊРєС–СЃС‚СЊ РІР»Р°СЃС‚РёРІРѕСЃС‚РµР№ РѕР±'С”РєС‚Р°: ${Object.keys(option).length}`);
 
-console.log(`Кількість елементів в об'єкті = ${counter}`);
+console.log(`РљС–Р»СЊРєС–СЃС‚СЊ РµР»РµРјРµРЅС‚С–РІ РІ РѕР±С”РєС‚С– = ${counter}`);
 
 //
-// Масиви і псевдоними
+// РњР°СЃРёРІРё С– РїСЃРµРІРґРѕРЅС–РјРё
 // 
 
 const arr = [1, 2, 3, 5, 4];
@@ -69,30 +69,30 @@ arr.push(10);
 console.log(arr.pop());
 
 arr.forEach(function(item, i, arr){
-    console.log(`${i}: ${item} в середині масива ${arr}`);
+    console.log(`${i}: ${item} пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ ${arr}`);
 });
 
-arr.sort(compareNum);       // сортування 
+arr.sort(compareNum);       // СЃРѕСЂС‚СѓРІР°РЅРЅСЏ 
 console.log(arr);
 
 function compareNum(a, b) {
     return a - b;
 }
 
-// Посилання на об'єкт
+// РџРѕСЃРёР»Р°РЅРЅСЏ РЅР° РѕР±'С”РєС‚
 
 const obj = {
     a: 5,
     b: 1
 };
 
-const link = obj; // посилання на об'єкт
+const link = obj; // РїРѕСЃРёР»Р°РЅРЅСЏ РЅР° РѕР±'С”РєС‚, Р°Р»Рµ РЅРµ Р№РѕРіРѕ РєРѕРїС–СЏ
 link.a = 10;
 
 console.log(obj);
 console.log(link);
 
-// Функція поверхневого копіювання струтктури що передається
+// Р¤СѓРЅРєС†С–СЏ РїРѕРІРµСЂС…РЅРµРІРѕРіРѕ РєРѕРїС–СЋРІР°РЅРЅСЏ СЃС‚СЂСѓРєС‚СѓСЂРё, С‰Рѕ РїРµСЂРµРґР°С”С‚СЊСЃСЏ
 //
 function copy (mainObj){
     let objCopy = {};
@@ -104,7 +104,7 @@ function copy (mainObj){
     return objCopy;
 }
 
-// Копіювання структури через виклик функції
+// РљРѕРїС–СЋРІР°РЅРЅСЏ СЃС‚СЂСѓРєС‚СѓСЂРё РѕР±'С”РєС‚Р°, С‡РµСЂРµР· РІРёРєР»РёРє С„СѓРЅРєС†С–С—
 //
 const numbers = {
     a: 2,
@@ -117,7 +117,7 @@ const numbers = {
 
 const newNumbers = copy(numbers);
 newNumbers.a = 10;
-newNumbers.c.x = 10; // це посилання на вкладенний об'єкт
+newNumbers.c.x = 10; // РїРѕСЃРёР»Р°РЅРЅСЏ РЅР° РІРєР»Р°РґРµРЅРёР№ РѕР±'С”РєС‚
 
 console.log(numbers);
 console.log(newNumbers);
@@ -127,14 +127,14 @@ const add = {
     e: 20
 };
 
-console.log(Object.assign(numbers, add)); // призначення об'єкту одного іншому
+console.log(Object.assign(numbers, add)); // РїСЂРёР·РЅР°С‡РµРЅРЅСЏ РѕРґРЅРѕРіРѕ РѕР±'С”РєС‚Р° С–РЅС€РѕРјСѓ
 
-// Cтворення нового об'єкту клона
+// РЎС‚РІРѕСЂРµРЅРЅСЏ РЅРѕРІРѕРіРѕ РѕР±'С”РєС‚Р°-РєР»РѕРЅР°
 //
 const clone = Object.assign({}, numbers);
 clone.c.x = 20;
 
-console.log(clone); // призначення об'єкту одного іншому
+console.log(clone); // РїСЂРёР·РЅР°С‡РµРЅРЅСЏ РѕРґРЅРѕРіРѕ РѕР±'С”РєС‚Р° С–РЅС€РѕРјСѓ
 
 // Spread ... (ES6-ES9)
 const video = ['youtube', 'vimeo', 'rutube'],
@@ -143,7 +143,7 @@ const video = ['youtube', 'vimeo', 'rutube'],
 
 console.log(internet);
 
-// Передача ряду параметрів у функцію за допомогою spread
+// РџРµСЂРµРґР°С‡Р° СЂСЏРґСѓ РїР°СЂР°РјРµС‚СЂС–РІ Сѓ С„С–РЅРєС†С–СЋ Р·Р° РґРѕРїРѕРјРѕРіРѕСЋ РѕРїРµСЂР°С‚РѕСЂР° spread
 //
 function log(a, b, c) {
     console.log(a);
@@ -153,10 +153,10 @@ function log(a, b, c) {
 
 const num = [2, 5, 7];
 
-log(...num);
+log(...num); // ... - spread РѕРїРµСЂР°С‚РѕСЂ
 
 // 
-// Замикання та ликсичне серодовище
+// Р—Р°РјРёРІР°РЅРЅСЏ РЅР° Р»РµРєСЃРёС‡РЅРµ СЃРµСЂРµРґРѕРІРёС‰Рµ
 // 
 
 function createCounter() {
@@ -185,5 +185,5 @@ console.log(c1, c2, c3);
     const {eng} = b;
     return `${first} ${eng}`;
  }
- const rst = foo(['Hello', 'Привіт'], {ru: 'Світ', eng: 'World'});
+ const rst = foo(['Hello', 'РџСЂРёРІС–С‚'], {ru: 'РЎРІС–С‚', eng: 'World'});
  console.log(rst);
