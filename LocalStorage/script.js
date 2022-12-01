@@ -34,3 +34,15 @@ change.addEventListener('click', () => {
     }
 });
 
+// серилізація даних (конвертація в json)
+const persone = {
+    name: 'Alex',
+    age: 25
+};
+
+localStorage.setItem('persone', JSON.stringify(persone));
+
+console.log(JSON.parse(localStorage.getItem('persone')));
+
+
+
