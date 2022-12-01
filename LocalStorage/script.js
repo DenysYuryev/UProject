@@ -17,7 +17,7 @@ if (localStorage.getItem('isChecked')) {
     checkbox.checked =true;
 }
 
-if (localStorage.getItem('bgForm' === 'changed')) {
+if (localStorage.getItem('bgForm') === 'changed') {
     form.style.backgroundColor = 'red';
 }
 
