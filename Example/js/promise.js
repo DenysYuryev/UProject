@@ -72,3 +72,58 @@ Promise.all([test(1000), test(2000)]).then(() => {
 Promise.race([test(1000), test(2000)]).then(() => {
     console.log('Promise first done!');
 });
+
+
+// Через сколько секунд данный код выведет в консоль сообщение? И что именно будет в консоли?
+
+const promisify = (item, delay) =>
+    new Promise(resolve => setTimeout(() => resolve(item), delay));
+ 
+const a = () => promisify('a', 100);
+const b = () => promisify('b', 5000);
+const c = () => promisify('c', 3000);
+ 
+function one() {
+    const promises = [a(), b(), c()];
+    Promise.all(promises).then(values => console.log(values));
+}
+ 
+one();
+
+// Через сколько секунд данный код выведет в консоль сообщение? И что именно будет в консоли?
+
+const promisify = (item, delay) =>
+    new Promise(resolve => setTimeout(() => resolve(item), delay));
+ 
+const a = () => promisify('a', 100);
+const b = () => promisify('b', 5000);
+const c = () => promisify('c', 3000);
+ 
+async function two() {
+    const promises = [a(), b(), c()];
+    const outpu1 = await Promise.race(promises);
+    return `two is done: ${outpu1}`;
+}
+ 
+two().then(console.log);
+ 
+// Это тоже самое, что и .then(data => console.log(data));
+// data передается в команду автоматически, и она запускается сама с этими данными
+
+// Через сколько секунд данный код выведет в консоль сообщение? И что именно будет в консоли?
+
+const promisify = (item, delay) =>
+    new Promise(resolve => setTimeout(() => resolve(item), delay));
+ 
+const a = () => promisify('a', 100);
+const b = () => promisify('b', 5000);
+const c = () => promisify('c', 3000);
+ 
+async function three() {
+    const outpu1 = await a();
+    const outpu2 = await b();
+    const outpu3 = await c();
+    return `three is done: ${outpu1} ${outpu2} ${outpu3}`;
+}
+ 
+three().then(console.log);
